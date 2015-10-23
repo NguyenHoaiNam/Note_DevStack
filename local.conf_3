@@ -1,0 +1,45 @@
+[[local|localrc]]
+# Template cai dat AIO ban Killo co cac project: Nova, Glance, Neutron, Swit, Keystone, Horizon, Murano, Heat
+
+SERVICE_TOKEN=openstack
+ADMIN_PASSWORD=openstack
+MYSQL_PASSWORD=openstack
+RABBIT_PASSWORD=openstack
+SERVICE_PASSWORD=openstack
+HOST_IP=172.16.69.189
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS=2
+
+SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
+SWIFT_REPLICAS=1
+SWIFT_DATA_DIR=$DEST/data
+enable_service tempest
+enable_service heat h-api h-api-cfn h-api-cw h-eng
+enable_service murano murano-api murano-engine
+
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+
+#ml2
+Q_PLUGIN=ml2
+Q_AGENT=openvswitch
+# GRE
+Q_ML2_TENANT_NETWORK_TYPE=gre
+PUBLIC_INTERFACE=eth0
+Q_USE_PROVIDERNET_FOR_PUBLIC=True
+Q_L3_ENABLED=True
+Q_USE_SECGROUP=True
+OVS_PHYSICAL_BRIDGE=br-ex
+PUBLIC_BRIDGE=br-ex
+OVS_BRIDGE_MAPPINGS=public:br-ex
+FLOATING_RANGE="172.16.69.0/24"
+Q_FLOATING_ALLOCATION_POOL=start=172.16.69.183,end=172.16.69.188
+FIXED_RANGE="10.0.0.0/24"
+PUBLIC_NETWORK_GATEWAY=172.16.69.1
+#vnc
+enable_service n-novnc
+enable_service n-cauth
