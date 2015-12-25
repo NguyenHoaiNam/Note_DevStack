@@ -13,7 +13,6 @@ sleep(3)
 
 echo "Copy file keystone"
 cp /etc/keystone/keystone.conf /etc/keystone/keystone.conf.bka
-echo "Start replate !"
 
 sed -i "s/connection = mysql+pymysql:\/\/root:abc123@$PIP\/keystone?charset=utf8/\
 connection = mysql+pymysql:\/\/root:abc123@$VIP\/keystone?charset=utf8/g" /etc/keystone/keystone.conf
@@ -21,7 +20,7 @@ connection = mysql+pymysql:\/\/root:abc123@$VIP\/keystone?charset=utf8/g" /etc/k
 sed -i "s/rabbit_hosts = $PIP/rabbit_hosts = 10.10.10.11:5672,10.10.10.12:5672,10.10.10.13:5672/g" \
 /etc/keystone/keystone.conf
 
-echo "Done service Keystone"
+
 
 ## With Glance ##
 
