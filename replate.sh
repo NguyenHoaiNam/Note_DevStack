@@ -91,7 +91,6 @@ sudo sed -i "s/$PIP:/$VIP:/g" /etc/neutron/neutron.conf
 sudo sed -i "s/rabbit_hosts = $PIP/rabbit_hosts = 10.10.10.11,10.10.10.12,10.10.10.13/g" /etc/neutron/neutron.conf
 
 ## Done !!! ##
-echo "Finish replate file into forders: keystone, nova, neutron, glance !!! Continue next steps"
 echo "#########################"
 echo "Check when we change !!!"
 
@@ -108,12 +107,6 @@ diff /etc/nova/nova.conf /etc/nova/nova.conf.bka
 echo "File neutron.conf"
 diff /etc/neutron/neutron.conf /etc/neutron/neutron.conf.bka
 
-
-
-
-
-
-
-
-
-
+###
+echo "Finish replate file into forders: keystone, nova, neutron, glance !!! Continue next steps"
+###
